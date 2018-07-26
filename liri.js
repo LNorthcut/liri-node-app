@@ -1,30 +1,20 @@
+var request = require("request");
+require("dontenv").config();
+require("keys.js").config();
 
-var Twitter = require("twitter");
-var request = requires('request');
-var fs = require('fs');
-var spotify = require("spotify");
-var filename = './log.txt';
-var log = require('simple-noe-logger').createSimpleLogger (filename);
-var twitterKeysFile = require("./keys.js");
+var Twitter = require("keys.twitter");
+// var twitterKeysFile = require("./keys.js");
 
 
-// log.setLevel('all');
-var action = process.argv[2]
+;
+var action = process.argv
 var argument = "";
 
-
-doSomething(action, argument);
-
-function doSomething(action, argument) {
-
-    argument = getThirdArgument();
-
-    switch(action) {
+function doSomething(action) {
+    switch(action){
         case "my-tweets":
         getMyTweets();
         break;
-
-     }
 }
 
 function getMyTweets(){
@@ -45,9 +35,8 @@ function getMyTweets(){
             }
             
         });
+    
     }
-    function logOutput(logText) {
-        log.info(logText);
-        console.log(logText);
-    }
+
+}
 
